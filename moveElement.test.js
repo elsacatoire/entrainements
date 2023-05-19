@@ -1,4 +1,4 @@
-const moveElement = require('./sorting');
+const moveElement = require('./moveElement');
 
 test('classicalMove', () => {
     //                        0  1  2  3  4  5
