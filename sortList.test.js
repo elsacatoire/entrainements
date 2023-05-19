@@ -1,0 +1,1 @@
+const sortList = require('./sorting');

@@ -24,17 +24,25 @@ function moveElement(srcList, indexFrom, indexTo) {
         return console.log('error : order of exchange not supported');
     }
 }
+module.exports = moveElement;
 
-function sortList(ListToSort) {
-    for (let i = 0; i < ListToSort.length; i++) {
-        const element = array[i];
-
+function sortList(listToSort) {
+    for (let i = 0; i < listToSort.length; i++) {
+        let elementToCompare = listToSort[i]
+        for (let j = 0; j < listToSort.length; j++) {
+            let elementToTest = listToSort[j];
+            if (elementToCompare > elementToTest) {
+                listToSort = moveElement(listToSort, i, j)
+                console.log(listToSort);
+            }
+        }
     }
 }
+module.exports = sortList;
 
 
 // main application
-let randomList = createRandomList(4)
+/* let randomList = createRandomList(4)
 console.log(randomList);
 
-console.log(moveElement([1, 2, 3, 4, 5, 6], 1, 3));
+console.log(sortList([3, 1, 2, 4, 5])); */
