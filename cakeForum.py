@@ -1,4 +1,5 @@
 from abc import ABC
+import time
 
 class File(ABC):
     """Fichier."""
@@ -143,3 +144,35 @@ class Thread:
 
 
 
+# lets do this
+def main():
+    """Lance le code principal."""
+    user1 = User("lenaka", "123?user")
+    moderator1 = Moderator("zaelle", "azert12!")
+
+    cake_thread = user1.make_thread("what about bunnies", "have you ever done a bunny like cake ?")
+    cake_thread.display()
+
+    moderator.post(cake_thread, content="Oui j'aime beaucoup ! 😚")
+    cake_thread.display()
+
+    irrelevant_post = user.post(cake_thread, content="Et vous aimez les voitures ?")
+    response = moderator.post(cake_thread, content="C'est hors sujet sur ce forum 😕")
+    cake_thread.display()
+
+    print()
+    print("après quelques minutes, le modérateur supprime les messages hors sujets...")
+    print()
+
+    time.sleep(2)
+    moderator.delete(cake_thread, irrelevant_post)
+    moderator.delete(cake_thread, response)
+    cake_thread.display()
+
+    image = PNGImageFile(name="image de gâteau", size=3)
+    user.post(cake_thread, content="Voici une image de mon gâteau !", file=image)
+    moderator.post(cake_thread, "Woah, sublime !")
+    cake_thread.display()
+
+
+    main()
