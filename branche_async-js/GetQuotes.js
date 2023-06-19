@@ -1,6 +1,8 @@
 
-// Api qui va me fournir mes quotes
+// on fourni une quote positive à chaque connexion
 
+
+//fonction qui récupère la quote via une API
 async function fetchPositivQuote() {
     const positivQuotes = 'https://www.affirmations.dev/'
 
@@ -10,4 +12,16 @@ async function fetchPositivQuote() {
     console.log(dataQuote.affirmation);
 }
 
+// fonction qui va récuprérer les quotes des usagers
+/* async function postPositivQuote() {
+    const inputQuote = 
+} */
+
+
+
+
+
+
+
+// simulation, la personne se connecte run :
 fetchPositivQuote()
