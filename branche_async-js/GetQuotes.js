@@ -12,6 +12,13 @@ async function fetchPositivQuote() {
     console.log(dataQuote.affirmation);
 }
 
+function getInputValue() {
+    const input = document.getElementById('#myInput');
+    const value = input.value;
+    console.log(value);
+}
+
+
 // fonction qui va récuprérer les quotes des usagers
 /* async function postPositivQuote() {
     const inputQuote = 
