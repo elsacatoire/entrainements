@@ -9,12 +9,18 @@ function getRandomNumber(min, max) {
 }
 
 async function fetchPositivQuote() {
-    const randomIndex = getRandomNumber(1,100);
-    const positivQuotes = 'https://type.fit/api/quotes'
-    const responseQuote = await fetch(positivQuotes)
-    const dataQuote = await responseQuote.json()
-    console.log(dataQuote[randomIndex].text);
-    console.log(dataQuote[randomIndex].author);
+    const randomIndex = getRandomNumber(0,100);
+    const positivQuotes = 'https://type.fit/api/quotes';
+    const responseQuote = await fetch(positivQuotes);
+    const dataQuote = await responseQuote.json();
+    const quoteText = dataQuote[randomIndex].text;
+    const quoteAuthor = dataQuote[randomIndex].author;
+    console.log(quoteText);
+    console.log(quoteAuthor);
+
+    // affiche sur la page HTML
+    document.getElementById('quoteText').textContent = quoteText;
+    document.getElementById('quoteAuthor').textContent= quoteAuthor;
 }
 
 // fonction qui récupère une quote
@@ -22,19 +28,6 @@ function getInputValue() {
     var input = document.getElementById('myInput').value;
     alert(input);
 }
-
-
-
-
-// fonction qui va récuprérer les quotes des usagers
-/* async function postPositivQuote() {
-    const inputQuote = 
-} */
-
-
-
-
-
 
 
 // simulation, la personne se connecte run :
