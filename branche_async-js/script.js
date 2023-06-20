@@ -26,9 +26,36 @@ async function fetchPositivQuote() {
 // fonction qui récupère une quote
 function getInputValue() {
     var input = document.getElementById('myInput').value;
-    alert(input);
+    console.log(input);
+
+    // consevrer l'input en objet
+    const inputObject = {
+        quote : getInputValue
+    };
+
+    // convertir l'objet en JSON
+    const jsonInput = JSON.stringify(inputObject);
+
+    // stocker la valeur JSON dans le fichier local
+    localStorage.setItem('newQuotes.json', jsonInput)
+    
+    
+    
+    fetch('newQuotes.json', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: jsonInput
+    })
+    .then(response => {
+        if (response.ok) {
+            console.log('data envoyées');
+        } else {
+            console.log('erreur');
+        }
+    })
+    .catch(error => {
+        console.log('erreur', error);
+    })
 }
-
-
-// simulation, la personne se connecte run :
-//fetchPositivQuote()
