@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="script.js"></script>
 </head>
 <body>
 
@@ -11,19 +12,17 @@
     <br>
     <h2>Here some words to make you feel empower today :</h2>
     <br>
-    <div id="quoteContainer"></div>
-    <button onclick="fetchPositivQuote()"> Get your positiv quote </button>
+    <div id="quoteContainer">
+        <button onclick="fetchPositivQuote()"> Get your positiv quote </button>
+    </div>
     <br>
     <br>
     
     <br>
-    <input type="text" id="myInput" placeholder="do you have a positiv quote to share?">
-  
-    <button onclick="getInputValue()">Obtenir la valeur</button>
+    <div id="giveMeQuote">
+        <input type="text" placeholder="do you have a positiv quote to share?" id="myInput">
+        <button type="button" onclick="getInputValue()">Add your own positivity to the world</button>
+    </div>
 
-
-
-
-    <script src="'GetQuotes"></script>
 </body>
 </html>
