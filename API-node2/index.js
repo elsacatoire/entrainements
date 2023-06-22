@@ -26,6 +26,16 @@ app.post('/parkings', (req,res) => {
     res.status(200).json(parkings)
 })
 
+// définir la route PUT pour modifier un parking
+app.put('/parkings/:id', (req,res) => {
+    const id = parseInt(req.params.id)
+    let parking = parkings.find(parking => parking.id === id)
+    parking.name =req.body.name,
+    parking.city =req.body.city,
+    parking.type =req.body.type,
+    res.status(200).json(parking)})
+
+
 // quand le serveur se lance
 app.listen(8080, () => {
     console.log("Serveur à l'écoute")
