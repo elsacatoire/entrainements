@@ -35,6 +35,13 @@ app.put('/parkings/:id', (req,res) => {
     parking.type =req.body.type,
     res.status(200).json(parking)})
 
+// définir la route DELETE pour supprimer un parking
+app.delete('/parkings/:id', (req,res) => {
+    const id = parseInt(req.params.id)
+    let parking = parkings.find(parking => parking.id === id)
+    parkings.splice(parkings.indexOf(parking),1)
+    res.status(200).json(parkings)})
+
 
 // quand le serveur se lance
 app.listen(8080, () => {
