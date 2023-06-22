@@ -97,16 +97,37 @@ app.post('/parkings/:parkingId/reservations', (req, res) => {
     res.status(201).json(newReservation)
 })
 
-
 // définir la route PUT pour modifier une réservation
+app.put('/parkings/:parkingId/reservations/:reservationId', (req,res) => {
+    const parkingId = req.params.parkingId
+    const reservationId = req.params.reservationId
+    const { clientName } = req.body
+
+    // recherche de la réservation à modifier
+    const reservation = reservations.find(reservation => 
+        reservation.parkingId === Number(parkingId)
+        && reservation.id === Number(reservationId))
+    
+        if (reservation) {
+            // Mise à jour du nom de la réservation
+            reservation.parking = req.body.parking
+            reservation.parkingId = req.body.parkingId
+            reservation.city = req.body.city
+            reservation.clientName = req.body.clientName
+            reservation.vehicle = req.body.vehicle
+            reservation.licensePlate = req.body.licensePlate
+            reservation.checkin = req.body.checkin
+            reservation.checkout = req.body.checkout
+
+            res.json(reservation);
+        } else {
+            res.status(404).json({ message: 'Réservation non trouvée' });
+        }
 
 // définir la route DELETE pour supprimer une réservation
-
-
+    })
 
 /* --- Quand le serveur se lance --- */
 app.listen(8080, () => {
     console.log("Serveur à l'écoute")
 })
-
-
