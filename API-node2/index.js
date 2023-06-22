@@ -93,7 +93,6 @@ app.post('/parkings/:parkingId/reservations', (req, res) => {
 
     // ajout de la réservation dans la liste des reservtaions
     reservations.push(newReservation)
-
     res.status(201).json(newReservation)
 })
 
@@ -101,17 +100,28 @@ app.post('/parkings/:parkingId/reservations', (req, res) => {
 app.put('/parkings/:parkingId/reservations/:reservationId', (req,res) => {
     const parkingId = req.params.parkingId
     const reservationId = req.params.reservationId
-    const { clientName } = req.body
+    const {
+        parking,
+        parkingId: newParkingId,
+        city,
+        clientName,
+        vehicle,
+        licensePlate,
+        checkin,
+        checkout
+    } = req.body
 
     // recherche de la réservation à modifier
-    const reservation = reservations.find(reservation => 
-        reservation.parkingId === Number(parkingId)
-        && reservation.id === Number(reservationId))
+    const reservation = reservations.find(
+        (reservation) => 
+        reservation.parkingId === Number(parkingId) && 
+        reservation.id === Number(reservationId)
+        )
     
         if (reservation) {
             // Mise à jour du nom de la réservation
             reservation.parking = req.body.parking
-            reservation.parkingId = req.body.parkingId
+            reservation.parkingId = req.body.newParkingId
             reservation.city = req.body.city
             reservation.clientName = req.body.clientName
             reservation.vehicle = req.body.vehicle
@@ -123,9 +133,29 @@ app.put('/parkings/:parkingId/reservations/:reservationId', (req,res) => {
         } else {
             res.status(404).json({ message: 'Réservation non trouvée' });
         }
+    })
 
 // définir la route DELETE pour supprimer une réservation
-    })
+app.delete('/parkings/:parkingId/reservations/:reservationId', (req,res) => {
+    const parkingId = req.params.parkingId
+    const reservationId = req.params.reservationId
+
+    // recherche de la réservation à supprimer
+    const reservationIndex = reservations.findIndex(
+        (reservation) => 
+        reservation.parkingId === Number(parkingId) && 
+        reservation.id === Number(reservationId)
+        )
+    
+        if(reservationId !== -1) {
+            // suppression de la réservation de la liste
+            const deleteReservation = reservations.splice(reservationIndex, 1)
+            res.json(deleteReservation[0])
+        } else {
+            res.status(404).json({message : 'Réservation non trouvée'})
+        }
+})
+
 
 /* --- Quand le serveur se lance --- */
 app.listen(8080, () => {
