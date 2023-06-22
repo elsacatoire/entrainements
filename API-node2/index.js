@@ -62,6 +62,20 @@ app.get('/parkings/:parkingId/reservations', (req, res) => {
 });
 
 // définir la route GET pour obtenir une réservation en particulier
+app.get('/parkings/:parkingId/reservations/:reservationId', (req, res) => {
+    const parkingId = req.params.parkingId
+    const reservationId = req.params.reservationId
+    // recherche de la réservation spécifique
+    const reservation = reservations.find(reservation => reservation.parkingId === Number(parkingId) && reservation.id === Number(reservationId));
+
+    if (reservation) {
+        res.json(reservation)
+    } else {
+        res.status(404).json({
+            message: 'Reservation non trouvée'
+        })
+    }
+})
 
 // définir la route POST pour céer une nouvelle réservation
 
