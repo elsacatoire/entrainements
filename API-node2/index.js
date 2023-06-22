@@ -13,9 +13,17 @@ const app = express()
 const parkings = require('./parkings.json')
 // importer les données de la ressources reservations
 const reservations = require('./reservations')
+
+/** * Import MongoClient & connexion à la DB */
+const MongoClient = require('mongodb').MongoClient;const url = 'mongodb://localhost:27017'
+const dbName = 'parkingApi'
+let db
+MongoClient.connect(url, function(err, client) {
+    console.log("Connected successfully to server")
+    db = client.db(dbName);})
+
 // Middleware
 app.use(express.json())
-
 
 /* --- DEFINITION des routes pour la ressource parkings --- */
 // définir la route GET pour obtenir tous les parkings
