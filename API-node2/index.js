@@ -54,15 +54,20 @@ app.delete('/parkings/:id', (req,res) => {
 
 
     /* --- DEFINITION des routes pour la ressource reservations --- */
-// définir la route GET pour tous les parkings
+// définir la route GET pour obtenir toutes les réservations d'un parkings
+app.get('/parkings/:parkingId/reservations', (req, res) => {
+    const parkingId = req.params.parkingId
+    const parkingReservations = reservations.filter(reservation => reservation.parkingId === Number(parkingId));
+    res.json(parkingReservations)
+});
 
-// définir la route GET pour un parking avec son id
+// définir la route GET pour obtenir une réservation en particulier
 
-// définir la route POST pour céer un nouveau parking
+// définir la route POST pour céer une nouvelle réservation
 
-// définir la route PUT pour modifier un parking
+// définir la route PUT pour modifier une réservation
 
-// définir la route DELETE pour supprimer un parking
+// définir la route DELETE pour supprimer une réservation
 
 
 
