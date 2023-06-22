@@ -57,16 +57,16 @@ app.delete('/parkings/:id', (req,res) => {
 // définir la route GET pour obtenir toutes les réservations d'un parkings
 app.get('/parkings/:parkingId/reservations', (req, res) => {
     const parkingId = req.params.parkingId
-    const parkingReservations = reservations.filter(reservation => reservation.parkingId === Number(parkingId));
+    const parkingReservations = reservations.filter(reservation => reservation.parkingId === Number(parkingId))
     res.json(parkingReservations)
-});
+})
 
 // définir la route GET pour obtenir une réservation en particulier
 app.get('/parkings/:parkingId/reservations/:reservationId', (req, res) => {
     const parkingId = req.params.parkingId
     const reservationId = req.params.reservationId
     // recherche de la réservation spécifique
-    const reservation = reservations.find(reservation => reservation.parkingId === Number(parkingId) && reservation.id === Number(reservationId));
+    const reservation = reservations.find(reservation => reservation.parkingId === Number(parkingId) && reservation.id === Number(reservationId))
 
     if (reservation) {
         res.json(reservation)
@@ -78,6 +78,25 @@ app.get('/parkings/:parkingId/reservations/:reservationId', (req, res) => {
 })
 
 // définir la route POST pour céer une nouvelle réservation
+app.post('/parkings/:parkingId/reservations', (req, res) => {
+    const parkingId = req.params.parkingId
+    const { clientName } = req.body
+    // génération d'un nouvel identifiant pour la réservation
+    const newReservationId = reservations.length + 1
+
+    // Création de la nouvelle réservation
+    const newReservation = {
+    id: newReservationId,
+    parkingId: Number(parkingId),
+    clientName: clientName
+    }
+
+    // ajout de la réservation dans la liste des reservtaions
+    reservations.push(newReservation)
+
+    res.status(201).json(newReservation)
+})
+
 
 // définir la route PUT pour modifier une réservation
 
