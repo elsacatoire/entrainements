@@ -1,21 +1,31 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { NewTodoForm } from "./NewTodoForm"
+import { TodoList } from "./TodoList"
 import ('./styles.css')
 
 export default function App() {
-  const [newItem, setNewItem] = useState("")
-  const [todos, setTodos] = useState([])
+  
+  const [todos, setTodos] = useState(() => {
+    const localValue = localStorage.getItem('ITEMS')
+    if (localValue == null) return []
+    return JSON.parse(localValue)
 
-  function handleSubmit(e) {
-    e.preventDefault() //prevent my page to refreshing
-    // in order to re render you need to pass a function to change the state
-    setTodos((currentTodos) => {
-      return[
-        ...currentTodos, 
-        { id: crypto.randomUUID(), title: newItem, completed: false},
-      ]
-    })
-    setNewItem("")
-  }
+  })
+
+  useEffect(() => {
+    localStorage.setItem("ITEM", JSON.stringify(todos))
+
+  }, [todos])
+
+function addTodo(title){
+  // in order to re render you need to pass a function to change the state
+        setTodos((currentTodos) => {
+            return[
+            ...currentTodos, 
+            { id: crypto.randomUUID(), title, completed: false},
+            ]
+        })
+}
 
   function toggleTodo(id, completed) {
     setTodos(currentTodos => {
@@ -37,33 +47,9 @@ export default function App() {
   
   return (
   <>
-  <form onSubmit={handleSubmit} className="new-item-form">
-    <div className="form-row">
-      <label htmlFor="item">New label</label>
-      <input value={newItem} 
-      onChange={e => setNewItem(e.target.value)} 
-      type="text" 
-      id="item"></input> 
-    </div> 
-    <button className="btn">Add</button>
-  </form>
+  <NewTodoForm onSubmit={addTodo}/>
   <h1 className="header">Todo List</h1>
-  <ul className="list">
-    {todos.length ===0 && "No Todos"}
-    {todos.map(todo => {
-      return <li key={todo.id}>
-      <label>
-        <input type="checkbox" checked={todo.completed}
-        onChange={e => toggleTodo(todo.id, e.target.checked)}/>
-        {todo.title}
-      </label>
-      <button 
-        onClick={() => deleteTodo(todo.id)} 
-        className="btn btn-danger">Delete</button>      
-    </li>
-    })}
-
-  </ul>
+  <TodoList todos={ todos } toggleTodo={toggleTodo} deleteTodo={deleteTodo}/>
   </>
   )
 }
