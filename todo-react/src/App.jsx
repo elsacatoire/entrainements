@@ -1,18 +1,17 @@
 import { useState } from "react"
 import ('./styles.css')
 
-export default function App(params) {
+export default function App() {
   const [newItem, setNewItem] = useState("")
   const [todos, setTodos] = useState([])
 
   function handleSubmit(e) {
     e.preventDefault() //prevent my page to refreshing
-
     // in order to re render you need to pass a function to change the state
     setTodos((currentTodos) => {
       return[
-        ...todos, 
-        { id: crypto.randomUUID, title: newItem, completed: false},
+        ...currentTodos, 
+        { id: crypto.randomUUID(), title: newItem, completed: false},
       ]
     })
     setNewItem("")
@@ -28,6 +27,12 @@ export default function App(params) {
       })
     })
     
+  }
+
+  function deleteTodo(id) {
+    setTodos(currentTodos => {
+      return currentTodos.filter(todo => todo.id !== id)
+    })
   }
   
   return (
@@ -51,7 +56,9 @@ export default function App(params) {
         onChange={e => toggleTodo(todo.id, e.target.checked)}/>
         {todo.title}
       </label>
-      <button className="btn btn-danger">Delete</button>      
+      <button 
+        onClick={() => deleteTodo(todo.id)} 
+        className="btn btn-danger">Delete</button>      
     </li>
     })}
 
