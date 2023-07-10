@@ -32,6 +32,19 @@ test.each(testCaseNot400)('not 100', (annee, expectedResult) => {
     expect(result).toBe(expectedResult)
 })
 
+const testCase4not100 = [
+    [2008, true],
+    [2012, true],
+    [2016, true],
+]
+
+test.each(testCase4not100)('4 not 100', (annee, expectedResult) => {
+    const result = isItALeapYear(annee)
+    expect(result).toBe(expectedResult)
+})
+
+
+
 
 //    /\  /\ /\ /\                              /\  /\  /\
 //   /  \/  \  /  \      Le code s'exécute     /  \/  \/  \
