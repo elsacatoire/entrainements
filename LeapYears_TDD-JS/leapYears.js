@@ -9,6 +9,14 @@
 
 // ==> déclaration des fonctions <==
 
+function isItALeapYear(year) {
+    if (year % 400 ==0 ) {
+        return true
+    }
+    return false
+    
+}
+
 //    /\  /\ /\ /\                              /\  /\  /\
 //   /  \/  \  /  \      Le code s'exécute     /  \/  \/  \
 //  /   /    \/    \            ICI  :        /    \   \   \
@@ -16,3 +24,4 @@
 
 
 // ==> export des modules <===
+module.exports = isItALeapYear
