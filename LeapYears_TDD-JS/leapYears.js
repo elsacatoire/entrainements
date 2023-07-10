@@ -10,7 +10,7 @@
 // ==> déclaration des fonctions <==
 
 function isItALeapYear(year) {
-    if (year % 400 ==0 ) {
+    if (year % 400 == 0) {
         return true
     }
     return false

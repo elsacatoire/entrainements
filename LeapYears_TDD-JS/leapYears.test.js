@@ -19,9 +19,17 @@ test("easy case 400", () => {
     expect(result).toBeTruthy()
 })
 
-test("divisible by 100 but not 400", () => {
-    const result = isItALeapYear(1800)
-    expect(result).toBeFalsy()
+const testCaseNot400 = [
+    [1700, false],
+    [1800, false],
+    [1900, false],
+    [2100, false],
+    [2000, true],
+]
+
+test.each(testCaseNot400)('not 100', (annee, expectedResult) => {
+    const result = isItALeapYear(annee)
+    expect(result).toBe(expectedResult)
 })
 
 
