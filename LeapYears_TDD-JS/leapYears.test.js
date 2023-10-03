@@ -43,6 +43,15 @@ test.each(testCase4not100)('4 not 100', (annee, expectedResult) => {
     expect(result).toBe(expectedResult)
 })
 
+const testCaseNot4 = [
+    [2017, false],
+    [2018, false],
+    [2019, false],
+]
+test.each(testCaseNot4)('not 4', (annee, expectedResult) => {
+    const result = isItALeapYear(annee)
+    expect(result).toBe(expectedResult)
+})
 
 
 

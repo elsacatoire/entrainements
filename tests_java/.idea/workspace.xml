@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="97e29ce2-b94f-4fa1-8bad-4c50a44d3aef" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../SpringAPI/src/main/java/com/example/springapi/SpringApiApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringAPI/src/main/java/com/example/springapi/controller/EmployeeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringAPI/src/main/java/com/example/springapi/model/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringAPI/src/main/java/com/example/springapi/repository/EmployeeRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringAPI/src/main/java/com/example/springapi/service/EmployeeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringAPI/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringAPI/src/main/resources/data.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringAPI/src/test/java/com/example/springapi/EmployeeControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringAPI/src/test/java/com/example/springapi/SpringApiApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../exo_tri-python/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../exo_tri-python/test_tri.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pfps-python/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pfps-python/test_player.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ear/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ejbs/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ejbs/src/main/resources/META-INF/ejb-jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/primary-source/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projects/logging/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projects/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/servlets/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/servlets/servlet/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/servlets/servlet/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/servlets/servlet/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LeapYears_TDD-JS/leapYears.js" beforeDir="false" afterPath="$PROJECT_DIR$/../LeapYears_TDD-JS/leapYears.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LeapYears_TDD-JS/leapYears.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/../LeapYears_TDD-JS/leapYears.test.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="2WGW1OIVRuw4bAOUZB6sr59GLmz" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="tests_java" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="tests_java" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="97e29ce2-b94f-4fa1-8bad-4c50a44d3aef" name="Changes" comment="" />
+      <created>1696359182664</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1696359182664</updated>
+      <workItem from="1696359183661" duration="198000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
