@@ -1,6 +1,10 @@
 package com.openclassrooms.testing;
 
+import java.util.Set;
+import java.util.HashSet;
+
 public class Calculator {
+
     public int add(int a, int b) {
         return a + b;
     }
@@ -9,12 +13,31 @@ public class Calculator {
         return a * b;
     }
 
+    public double add(double a, double b) {
+        return a + b;
+    }
+
+    public double multiply(double a, double b) {
+        return a * b;
+    }
+
     public void longCalculation() {
         try {
-            // Wait for 2 seconds
             Thread.sleep(500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    public Set<Integer> digitsSet(int number) {
+        Set<Integer> integers = new HashSet<>();
+        String numberString = String.valueOf(number);
+
+        for (int i = 0; i < numberString.length(); i++) {
+            if (numberString.charAt(i) != '-') {
+                integers.add(Integer.parseInt(numberString, i, i + 1, 10));
+            }
+        }
+        return integers;
     }
 }

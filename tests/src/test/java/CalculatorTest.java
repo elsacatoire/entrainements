@@ -4,11 +4,12 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import java.text.MessageFormat;
 import java.time.Duration;
 import java.time.Instant;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import java.util.Set;
 
 public class CalculatorTest {
 
@@ -52,7 +53,7 @@ public class CalculatorTest {
         int sum = calculatorUnderTest.add(a, b);
 
         // Assert
-        assertEquals(5, sum);
+        assertThat(sum).isEqualTo(5);
     }
 
     @Test
@@ -65,7 +66,7 @@ public class CalculatorTest {
         int product = calculatorUnderTest.multiply(a, b);
 
         // Assert
-        assertEquals(462, product);
+        assertThat(product).isEqualTo(462);
     }
 
     @ParameterizedTest(name = "{0} x 0 should be equal to 0")
@@ -77,7 +78,7 @@ public class CalculatorTest {
         int actualResult = calculatorUnderTest.multiply(arg, 0);
 
         // Assert -- still zero !
-        assertEquals(0, actualResult);
+        assertThat(actualResult).isEqualTo(0);
     }
 
     @ParameterizedTest(name = "{0} + {1} should equal to {2}")
@@ -89,7 +90,7 @@ public class CalculatorTest {
         int actualResult = calculatorUnderTest.add(arg1, arg2);
 
         // Assert
-        assertEquals(expectResult, actualResult);
+        assertThat(actualResult).isEqualTo(expectResult);
     }
 
     @Timeout(1)
@@ -102,6 +103,32 @@ public class CalculatorTest {
 
         // Assert
         // ...
+    }
+
+    @Test
+    public void digitsSet_shouldReturnsTheSetOfDigits_ofPositiveInteger() {
+        // GIVEN
+        int number = 95897;
+
+        // WHEN
+        Set<Integer> actualDigits = calculatorUnderTest.digitsSet(number);
+
+        // THEN
+        assertThat(actualDigits).containsExactlyInAnyOrder(9, 5, 8, 7);
+    }
+
+    @Test
+    public void listDigits_shouldReturnsTheListOfDigits_ofNegativeInteger() {
+        int number = -124432;
+        Set<Integer> actualDigits = calculatorUnderTest.digitsSet(number);
+        assertThat(actualDigits).containsExactlyInAnyOrder(1, 2, 3, 4);
+    }
+
+    @Test
+    public void listDigits_shouldReturnsTheListOfZero_ofZero() {
+        int number = 0;
+        Set<Integer> actualDigits = calculatorUnderTest.digitsSet(number);
+        assertThat(actualDigits).containsExactly(0);
     }
 
 }
