@@ -1,7 +1,7 @@
-const fizzBuzz = require('./fizzBuzz')
+import { fizzBuzz } from './fizzBuzz'
 
 test('Not a number', () => {
-    expect(fizzBuzz("coucou")).toBe("Not a number");
+    expect(() => fizzBuzz("coucou" as unknown as number)).toThrow("Not a number");
 });
 
 test('3', () => {

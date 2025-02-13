@@ -1,5 +1,5 @@
-function fizzBuzz(limit) {
-    if (typeof limit !== "number") return "Not a number"
+export function fizzBuzz(limit: number): Array<string> {
+    if (typeof limit !== "number") throw new Error ("Not a number")
     const result = [];
     for (let i=1 ; i <= limit ; i++ ) {
         let output = '';
@@ -9,5 +9,3 @@ function fizzBuzz(limit) {
     }
     return result;
   }  
-
-  module.exports = fizzBuzz
