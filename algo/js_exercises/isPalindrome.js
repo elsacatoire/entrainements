@@ -1,17 +1,9 @@
-function fizzBuzz(limit) {
-    if (typeof limit !== "number") return "Not a number"
-    const result = [];
-    for (let i=1 ; i <= limit ; i++ ) {
-        if (i % 15 === 0) {
-            result.push('FizzBuzz') 
-        } else if (i % 5 === 0) {
-            result.push('Buzz')
-        } else if (i % 3 === 0) {
-            result.push('Fizz')
-        } else {result.push(i.toString())}
-    }
-    return result
-}  
+function isPalindrome(text) {
+    if (typeof text !== "string" || text.trim() === "") return "Invalid word";
 
-
-  module.exports = fizzBuzz;
+    const cleanText = text
+        .toLowerCase()
+        .replace(/[^a-z]/g, '');
+    return  cleanText === cleanText.split('').reverse().join('')
+}
+module.exports = isPalindrome;
