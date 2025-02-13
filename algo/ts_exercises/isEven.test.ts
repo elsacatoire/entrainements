@@ -1,4 +1,4 @@
-const isEven = require('./isEven');
+import { isEven } from './isEven'
 
 // Test ,umbers
 test('An even number', () => {
@@ -10,12 +10,8 @@ test('An odd number', () => {
 });
 
 // Limit test cases
-test('Empty input', () => {
-    expect(isEven()).toBe(false);
-});
-
 test('A string', () => {
-    expect(isEven('hello')).toBe(false);
+    expect(() => isEven('hello' as unknown as number)).toThrow('Invalid number');
 });
 
 test('Zero', () => {

@@ -1,5 +1,4 @@
-function isEven(number) {
-  return typeof number === 'number' && number % 2 === 0;
+export function isEven(num: number) {
+  if (typeof num !== 'number') throw new Error ('Invalid number')
+  return typeof num === 'number' && num % 2 === 0;
 }
-  
-module.exports = isEven;
