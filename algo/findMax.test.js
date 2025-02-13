@@ -9,11 +9,11 @@ test('Only one element array', () => {
 });
 
 test('Empty array', () => {
-    expect(findMax([])).toBe("empty array")
+    expect(findMax([])).toBe("Invalid array")
 });
 
 test('Not an array', () => {
-    expect(findMax('coucou')).toBe("not an array")
+    expect(findMax('coucou')).toBe("Invalid array")
 });
 
 test('Negative numbers', () => {

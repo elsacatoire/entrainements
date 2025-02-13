@@ -1,21 +1,8 @@
 
 function findMax(arr) {
-    if (!Array.isArray(arr)){
-        return "not an array";
-    }
-
-    if (arr.length === 0) {
-        return "empty array"
-    }
-    let max = arr[0]
-    for (num of arr) {
-        if (max < num){
-            max = num
-        }
-    }
-
-    return max
-  }
+    if (!Array.isArray(arr) || arr.length === 0) return "Invalid array";
+    return Math.max(...arr)
+}
   
-  module.exports = findMax
+module.exports = findMax
   
