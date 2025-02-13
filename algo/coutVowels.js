@@ -1,17 +1,8 @@
 function countVowels(str) {
     if (typeof(str) !== 'string') return "not a string"
+    const matches = str.match(/[aeiou]/gi);
+    
+    return matches ? matches.length : 0;
+}
 
-    const lowerStr = str.toLowerCase();
-    let vowelsCounter = 0
-    const vowels = ['a', 'e', 'i', 'o', 'u']
-
-    for (const char of lowerStr ) {
-        if (vowels.includes(char)) {
-            vowelsCounter ++
-        }
-   }
-
-   return vowelsCounter
-  }
-
-  module.exports = countVowels;
+module.exports = countVowels;
