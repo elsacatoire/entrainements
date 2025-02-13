@@ -1,4 +1,4 @@
-const countVowels = require('./countVowels')
+import { countVowels } from "./countVowels";
 
 // Normal cases
 test('Hello has 2 vowels', () => {
@@ -12,11 +12,6 @@ test('Should not be case sensitive', () => {
 })
 
 // Limit cases
-test('Should return "not a string" if entry is not a string', () => {
-    expect(countVowels(4567)).toBe("not a string");
-    expect(countVowels(['CAT', 'elsa'])).toBe("not a string");
-})
-
 test('Should return 0 for an empty string', () => {
     expect(countVowels('')).toBe(0);
 })
