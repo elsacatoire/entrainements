@@ -12,6 +12,10 @@ test('Should not be case sensitive', () => {
 })
 
 // Limit cases
-test('Should return 0 for an empty string', () => {
-    expect(countVowels('')).toBe(0);
+test('Should throw an error if entry is an empty string', () => {
+    expect(() => countVowels('')).toThrow("Empty string");
 })
+
+test('We only want words', () => {
+    expect(() => countVowels(4554 as unknown as string)).toThrow("Not a word");
+  });
