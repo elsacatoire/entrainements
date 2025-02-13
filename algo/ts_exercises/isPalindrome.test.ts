@@ -15,3 +15,11 @@ test('Should not be case sensitive', () => {
 test('Une phrase peut être un palindrome', () => {
     expect(isPalindrome('La mariée ira mal')).toBe(true);
 })
+
+test('We only want words', () => {
+    expect(() => isPalindrome(4554 as unknown as string)).toThrow("Not a word");
+  });
+
+test('Empty string should throw error', () => {
+  expect(() => isPalindrome('')).toThrow("Empty string");
+})
