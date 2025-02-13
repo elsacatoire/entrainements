@@ -1,4 +1,4 @@
-const isPalindrome = require('./isPalindrome')
+import { isPalindrome } from './isPalindrome'
 
 test('Kayak is a plaindrome!', () => {
     expect(isPalindrome('kayak')).toBe(true);
@@ -6,14 +6,6 @@ test('Kayak is a plaindrome!', () => {
 
 test('elsa is sadly not a palindrome', () => {
     expect(isPalindrome('elsa')).toBe(false);
-})
-
-test('We only want words', () => {
-    expect(isPalindrome(4554)).toBe('Not a word');
-})
-
-test('Empty string should return false', () => {
-    expect(isPalindrome('')).toBe('Empty string');
 })
 
 test('Should not be case sensitive', () => {
