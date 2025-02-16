@@ -25,6 +25,16 @@ export  const TodoList: React.FC<TodoListProps> = ({children}) => {
         setTask("");
     }
 
+    const deleteTask = (taskId: number) => {
+        setTasks(tasks.filter((task) => task.id !== taskId))
+    }
+
+    const taskStateUpdate = (taskId: number) => {
+        setTasks(tasks.map(task => 
+            task.id === taskId ? { ...task, isDone: !task.isDone } : task
+        ));
+    }
+
     useEffect(() => {
         setTasks([
             { id: 1, title: "Chips", isDone: false },
@@ -36,7 +46,6 @@ export  const TodoList: React.FC<TodoListProps> = ({children}) => {
     return (
         <div className="flex flex-col gap-2 p-2 border-2 border-lime-500 rounded-md">
             <h1 className="text-lg font-semibold">{children}</h1>
-
             <div className="flex flex-col gap-2 w-1/2">
                 <form 
                     className="flex gap-2"
@@ -56,22 +65,19 @@ export  const TodoList: React.FC<TodoListProps> = ({children}) => {
                         <Button onClick={addTask}>Add</Button>
                     </div>
                 </form>
-                <div className="p-1">
+                <div className="flex flex-col gap-1 p-1">
                     {
                         tasks.map(t =>{
                             return (
-                                <div key={t.id} className="flex gap-2">
+                                <div key={t.id} className="flex gap-3 items-center">
                                     <input 
                                     type="checkbox" 
                                     id={t.title} 
                                     checked={t.isDone} 
-                                    onChange={() => {
-                                        setTasks(tasks.map(task => 
-                                            task.id === t.id ? { ...task, isDone: !task.isDone } : task
-                                        ));
-                                    }}
+                                    onChange={() => {taskStateUpdate(t.id)}}
                                     />
                                     <label htmlFor={t.title}>{t.title}</label>
+                                    <Button iconOnly onClick={() => deleteTask(t.id)} >X</Button>
                                 </div>
                             )
                         })

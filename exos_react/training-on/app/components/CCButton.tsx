@@ -7,6 +7,8 @@ type ButtonProps = {
   variant?: "primary" | "secondary";
   disabled?: boolean;
   children: React.ReactNode;
+  type?: "button" | "submit" | "reset";
+  iconOnly?: boolean;
 };
 
 export const Button: React.FC<ButtonProps> = ({
@@ -14,18 +16,24 @@ export const Button: React.FC<ButtonProps> = ({
   variant = "primary",
   disabled = false,
   children,
+  type = "button",
+  iconOnly = false
 }) => {
   const variantClasses =
     variant === "primary" 
     ? "bg-lime-500 hover:hover:bg-lime-600 text-gray-900" 
     : "bg-gray-900 hover:hover:bg-gray-800 text-lime-500 border-2 border-lime-600";
 
+  const sizeClasses = iconOnly
+    ? "p-1 w-8 flex items-center justify-center rounded-xl"
+    : "px-4 py-2 w-full rounded-md"
+
   return (
     <button
-      type="button"
+      type={type}
       onClick={onClick}
       disabled={disabled}
-      className={`px-4 py-2 rounded font-semibold w-full ${variantClasses} ${
+      className={`${sizeClasses} font-semibold ${variantClasses} ${
         disabled ? "opacity-50 cursor-not-allowed" : ""
       }`}
     >
