@@ -22,7 +22,7 @@ body {
 
 @layer components {
   .main-container {
-    @apply flex flex-col w-full gap-2 p-2 border-2 border-lime-500 rounded-md;
+    @apply flex flex-col w-full gap-2 p-4 border-2 border-lime-500 rounded-md;
   }
 
   .main-title {
