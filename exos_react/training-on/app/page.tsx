@@ -1,6 +1,7 @@
 'use client'
 
 import { Button } from "./components/CCButton";
+import { NumberGuess } from "./components/NumberGuess";
 import { TodoList } from "./components/TodoList";
 
 export default function Home() {
@@ -14,8 +15,9 @@ export default function Home() {
             <Button onClick={() => alert('Clicked!')} variant="secondary">Secondary</Button>
             <Button onClick={() => alert('Clicked!')} disabled>Disabled</Button>
           </div>
-          <div>
-            <TodoList>Liste apréo</TodoList>
+          <div className="flex flex-col sm:flex-row gap-8">
+            <TodoList>What do we need for Apéro?</TodoList>
+            <NumberGuess>Guess my age?</NumberGuess>
           </div>
 
         </div>
