@@ -76,7 +76,7 @@ export  const TodoList: React.FC<TodoListProps> = ({children}) => {
                                     checked={t.isDone} 
                                     onChange={() => {taskStateUpdate(t.id)}}
                                     />
-                                    <label htmlFor={t.title}>{t.title}</label>
+                                    <label htmlFor={t.title} className="normal-text">{t.title}</label>
                                     <Button iconOnly onClick={() => deleteTask(t.id)} >X</Button>
                                 </div>
                             )

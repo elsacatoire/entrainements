@@ -29,8 +29,8 @@ body {
     @apply text-lg font-semibold;
   }
 
-  .icon-button {
-    @apply p-2 w-10 h-10 flex items-center justify-center rounded;
+  .normal-text {
+    @apply text-gray-100;
   }
 }
 

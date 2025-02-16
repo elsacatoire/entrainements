@@ -22,7 +22,7 @@ const checkNumber = () => {
         <div className="main-container justify-between">
             <h1 className="main-title">{children}</h1>
             <div className="flex flex-col gap-2">
-                <p className="text-3xl text-center">{num} ?</p>
+                <p className="text-3xl text-center normal-text">{num} ?</p>
                 <div className="flex gap-2 justify-center">
                     <Button iconOnly variant="secondary" onClick={() => setNum(num -1)}>-</Button>
                     <Button iconOnly onClick={() => setNum(num + 1)}>+</Button>

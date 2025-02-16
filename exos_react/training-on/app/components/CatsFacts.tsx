@@ -21,7 +21,7 @@ export const CatsFacts: React.FC = () => {
     return(
         <div className="main-container">
             <h1 className="main-title">Do you wanna learn fun facts about cats ?</h1>
-            <div className="flex gap-4 items-center text-gray-100">
+            <div className="flex gap-4 items-center normal-text">
                 <Button iconOnly onClick={() => getFact()}>Get Cat Fact</Button>
                 {!fact && <p>Press the button as many time as you wish to learn things about cutties of the univers</p>}
                 {fact && <p className="font-semibold italic">{fact.fact}</p>}
