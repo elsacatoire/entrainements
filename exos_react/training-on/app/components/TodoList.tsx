@@ -46,7 +46,7 @@ export  const TodoList: React.FC<TodoListProps> = ({children}) => {
     return (
         <div className="main-container">
             <h1 className="main-title">{children}</h1>
-            <div className="flex flex-col gap-2 w-1/2">
+            <div className="flex flex-col gap-2">
                 <form 
                     className="flex gap-2"
                     onSubmit={(e) => {
