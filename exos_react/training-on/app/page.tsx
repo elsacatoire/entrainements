@@ -1,6 +1,7 @@
 'use client'
 
 import { Button } from "./components/CCButton";
+import { TodoList } from "./components/TodoList";
 
 export default function Home() {
   return (
@@ -12,6 +13,9 @@ export default function Home() {
             <Button onClick={() => alert('Clicked!')} variant="primary">Primary</Button>
             <Button onClick={() => alert('Clicked!')} variant="secondary">Secondary</Button>
             <Button onClick={() => alert('Clicked!')} disabled>Disabled</Button>
+          </div>
+          <div>
+            <TodoList>Liste apréo</TodoList>
           </div>
 
         </div>
