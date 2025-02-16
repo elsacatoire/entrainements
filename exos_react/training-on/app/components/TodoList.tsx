@@ -44,8 +44,8 @@ export  const TodoList: React.FC<TodoListProps> = ({children}) => {
     }, [])
 
     return (
-        <div className="flex flex-col gap-2 p-2 border-2 border-lime-500 rounded-md">
-            <h1 className="text-lg font-semibold">{children}</h1>
+        <div className="main-container">
+            <h1 className="main-title">{children}</h1>
             <div className="flex flex-col gap-2 w-1/2">
                 <form 
                     className="flex gap-2"

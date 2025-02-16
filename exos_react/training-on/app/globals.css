@@ -19,3 +19,18 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@layer components {
+  .main-container {
+    @apply flex flex-col w-full gap-2 p-2 border-2 border-lime-500 rounded-md;
+  }
+
+  .main-title {
+    @apply text-lg font-semibold;
+  }
+
+  .icon-button {
+    @apply p-2 w-10 h-10 flex items-center justify-center rounded;
+  }
+}
+
