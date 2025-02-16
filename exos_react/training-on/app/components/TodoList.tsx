@@ -12,7 +12,7 @@ type TaskType = {
     isDone: boolean
 }
 
-export  const TodoList: React.FC<TodoListProps> = ({children}) => {
+export const TodoList: React.FC<TodoListProps> = ({children}) => {
 
     const [tasks, setTasks] = useState<TaskType[]>([]);
     const [task, setTask] = useState("");
